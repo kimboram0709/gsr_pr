@@ -1,0 +1,541 @@
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly News &amp; Insights Vol.126</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1F2A44; --navy-dark:#141B2E; --gold:#C9A227; --gold-light:#E8C766;
+  --bg:#F5F5F2; --card:#FFFFFF; --text:#222222; --text-sub:#666666; --border:#E4E2DB;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden;}
+.wrap{max-width:960px; margin:0 auto; padding:0 20px 60px;}
+
+.banner{background:linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); color:#fff; padding:22px 20px 40px; text-align:center;}
+.banner .icon-strip{display:flex; justify-content:space-around; align-items:flex-end; padding:16px 24px 26px; max-width:420px; margin:0 auto; opacity:0.55;}
+.banner .icon-strip svg{width:28px; height:28px;}
+.banner .brand-row{display:flex; align-items:center; justify-content:center; margin-bottom:14px;}
+.banner .brand-row .logo-chip{display:inline-flex; align-items:center; justify-content:center; background:#fff; border-radius:8px; padding:6px 14px;}
+.banner .brand-row img{height:18px; width:auto; display:block;}
+.banner .brand-row .kicker{font-size:13px; letter-spacing:2px; color:var(--gold-light); font-weight:700; text-transform:uppercase;}
+.banner h1{font-size:32px; font-weight:900; margin:6px 0 4px; letter-spacing:-0.5px;}
+.banner .meta{font-size:15px; color:#C9CDD8; font-weight:500;}
+.banner .meta .vol{color:var(--gold-light); font-weight:700;}
+
+.section-title{font-size:20px; font-weight:700; color:var(--navy); border-left:4px solid var(--gold); padding-left:12px; margin:32px 0 16px;}
+.section-title:first-of-type{margin-top:32px;}
+
+.video-block{margin:0 0 8px; text-align:center;}
+.video-thumb{position:relative; display:inline-block; max-width:640px; width:100%; border-radius:12px; overflow:hidden; border:1px solid var(--border); text-decoration:none; cursor:pointer;}
+.video-thumb img{display:block; width:100%; height:auto; background:#0d1220;}
+.video-thumb .play{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:78px; height:78px; border-radius:50%; background:rgba(255,255,255,0.92); box-shadow:0 6px 20px rgba(0,0,0,0.35); display:flex; align-items:center; justify-content:center; transition:transform .18s ease, background .18s ease;}
+.video-thumb:hover .play{transform:translate(-50%,-50%) scale(1.08); background:#ffffff;}
+.video-thumb .play::after{content:""; border-style:solid; border-width:14px 0 14px 22px; border-color:transparent transparent transparent var(--navy); margin-left:5px;}
+.video-embed{max-width:640px; width:100%; margin:0 auto; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#0d1220;}
+.video-embed iframe{display:block; width:100%; aspect-ratio:16/9; height:auto; border:0;}
+
+.summary-block{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:26px 28px;}
+.summary-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+.summary-card{display:flex; gap:12px; align-items:flex-start; background:#FBFAF7; border:1px solid var(--border); border-radius:10px; padding:14px 16px;}
+.summary-card.wide{grid-column:1 / -1;}
+.summary-card .icon-badge{flex-shrink:0; width:38px; height:38px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center;}
+.summary-card .icon-badge svg{width:19px; height:19px;}
+.summary-card h3{font-size:14px; color:var(--navy); margin-bottom:3px; font-weight:700; line-height:1.3;}
+.summary-card p{font-size:13px; color:var(--text-sub); line-height:1.55;}
+@media (max-width:600px){.summary-grid{grid-template-columns:1fr;} .summary-card.wide{grid-column:auto;}}
+
+.implications{margin-top:22px; padding-top:20px; border-top:1px dashed var(--border);}
+.implications h3.label{font-size:13px; color:var(--gold); letter-spacing:1px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:6px;}
+.implications h3.label svg{width:15px; height:15px; flex-shrink:0;}
+.implications ol{padding-left:20px;}
+.implications li{font-size:14.5px; margin-bottom:8px; color:var(--text);}
+.implications li b{color:var(--navy);}
+
+.content-layout{display:flex; gap:24px; align-items:flex-start;}
+.sidebar{width:230px; flex-shrink:0; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; position:sticky; top:16px;}
+.sidebar-item{display:flex; justify-content:space-between; align-items:center; padding:11px 12px; border-radius:8px; cursor:pointer; font-size:14.5px; color:var(--text); margin-bottom:2px; font-weight:500; transition:background .15s;}
+.sidebar-item:hover{background:#F2F0E9;}
+.sidebar-item.active{background:var(--navy); color:#fff; font-weight:700;}
+.sidebar-item .count{font-size:12px; color:var(--text-sub); background:#EFEDE6; border-radius:10px; padding:2px 9px; min-width:20px; text-align:center;}
+.sidebar-item.active .count{background:rgba(255,255,255,0.22); color:#fff;}
+.main-content{flex:1; min-width:0;}
+@media (max-width:760px){.content-layout{flex-direction:column;} .sidebar{width:100%; position:static;}}
+
+.cat-section{margin-bottom:36px;}
+.cat-section h2{font-size:18px; font-weight:700; color:var(--navy); margin-bottom:14px;}
+.card{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:18px 22px; margin-bottom:12px;}
+.card-head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; cursor:pointer;}
+.card-head .title-group{flex:1; min-width:0;}
+.card-title-link{display:block; font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px; text-decoration:none; overflow-wrap:break-word; word-break:keep-all;}
+.card-title-link:hover{color:var(--navy); text-decoration:underline;}
+.card-meta{font-size:13px; color:var(--text-sub);}
+.card-meta .press{color:var(--navy); font-weight:700;}
+.card-summary{font-size:13.5px; color:var(--text); margin-top:8px; padding-top:8px; border-top:1px dashed var(--border); overflow-wrap:break-word; word-break:keep-all;}
+.card-summary b{color:var(--gold); font-weight:700; margin-right:4px;}
+.toggle-icon{font-size:13px; color:var(--gold); font-weight:700; white-space:nowrap; user-select:none;}
+.preview{max-height:0; overflow:hidden; transition:max-height .3s ease; font-size:14px; color:var(--text-sub); line-height:1.8;}
+.preview-inner{padding-top:14px; border-top:1px solid var(--border); margin-top:14px;}
+.card.open .preview{max-height:1400px;}
+.card.open .toggle-icon .arrow{transform:rotate(180deg);}
+.toggle-icon .arrow{display:inline-block; transition:transform .2s; margin-left:4px;}
+.read-more{display:inline-block; margin-top:12px; font-size:13.5px; font-weight:700; color:var(--navy); text-decoration:none; border-bottom:1px solid var(--gold);}
+.note{font-size:12.5px; color:#a35b1f; background:#FBF1E4; border:1px solid #F0DDBB; border-radius:6px; padding:8px 10px; margin-bottom:10px;}
+footer{text-align:center; padding:32px 0 0; color:var(--text-sub); font-size:12.5px; border-top:1px solid var(--border); margin-top:20px;}
+@media (max-width:600px){.banner h1{font-size:24px;} .summary-block{padding:20px;} .card{padding:14px 16px;}}
+</style>
+</head>
+<body>
+
+<div class="banner">
+<div class="icon-strip">
+<svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.6"><path d="M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 8H6"></path><circle cx="9" cy="20" r="1.4" fill="#E8C766"></circle><circle cx="17" cy="20" r="1.4" fill="#E8C766"></circle></svg>
+<svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.6"><rect x="1" y="7" width="13" height="9"></rect><path d="M14 10h4l3 3v3h-7z"></path><circle cx="6" cy="18" r="1.6" fill="#E8C766"></circle><circle cx="17" cy="18" r="1.6" fill="#E8C766"></circle></svg>
+<svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.6"><path d="M4 19V5l6 3 6-3 4 2v12"></path><path d="M4 19h16M10 8v11M16 5v11"></path></svg>
+<svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>
+<svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.6"><path d="M3 17l5-5 4 4 8-8"></path><path d="M15 8h5v5"></path></svg>
+</div>
+<div class="brand-row"><span class="logo-chip"><img src="data:image/png;base64,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" alt="GS Retail"></span></div>
+<h1>Weekly News &amp; Insights</h1>
+<div class="meta"><span class="vol">Vol. 126</span> &nbsp;|&nbsp; 26.08.25</div>
+</div>
+
+<div class="wrap">
+<div class="section-title">5분 리포트</div>
+<div class="video-block">
+<div class="video-thumb" id="videoThumb" onclick="playVideoInline()">
+<img src="https://drive.google.com/thumbnail?id=1Js5RNYbU4kLYUIy8TKfs7-zV_TCUksYT&amp;sz=w1000" alt="이번 주 영상 썸네일">
+<span class="play"></span>
+</div>
+<div class="video-embed" id="videoEmbed" style="display:none;">
+<iframe src="https://drive.google.com/file/d/1Js5RNYbU4kLYUIy8TKfs7-zV_TCUksYT/preview" allow="autoplay" allowfullscreen=""></iframe>
+</div>
+</div>
+
+<div class="section-title">Executive Summary</div>
+<div class="summary-block">
+<div class="summary-grid">
+<div class="summary-card">
+<span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.8"><path d="M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 8H6"></path><circle cx="9" cy="20" r="1.4" fill="#E8C766"></circle><circle cx="17" cy="20" r="1.4" fill="#E8C766"></circle></svg></span>
+<div>
+<h3>① 편의점·홈쇼핑 반등 vs 대형마트·SSM 정체, 채널 양극화 심화</h3>
+<p>편의점은 차별화 상품·1인가구 공략으로 매출이 3.7% 늘고 홈쇼핑 4사도 영업이익이 최대 62.7% 개선된 반면, 대형마트는 7.3% 역성장하고 SSM은 0.3% 성장에 그치는 등 업태별 온도차가 뚜렷해지고 있다.</p>
+</div>
+</div>
+<div class="summary-card">
+<span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.8"><path d="M4 19V5l6 3 6-3 4 2v12"></path><path d="M4 19h16M10 8v11M16 5v11"></path></svg></span>
+<div>
+<h3>② 시니어·1인가구 등 세분화된 고객층 공략 경쟁</h3>
+<p>홈쇼핑은 새벽 방송·서포터즈로 5060 시니어를, 편의점은 밥알·단백질·아침 시간대로 1인가구를 겨냥하는 등 연령·가구 형태별 맞춤 전략이 확산되고 있다.</p>
+</div>
+</div>
+<div class="summary-card">
+<span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"></rect><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"></path><circle cx="12" cy="12" r="2.5"></circle></svg></span>
+<div>
+<h3>③ 유통 현장 AI 활용이 검색·안전관리로 확산</h3>
+<p>11번가 AI 검색이 구매전환율을 2배 높이고 신세계면세점이 비전 AI로 안전관리에 나서는 등, AI 활용이 상품 추천을 넘어 핵심 운영 영역으로 확대되고 있다.</p>
+</div>
+</div>
+<div class="summary-card">
+<span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.8"><path d="M12 3v3M6 8l-3 6a3 3 0 0 0 6 0l-3-6zM18 8l-3 6a3 3 0 0 0 6 0l-3-6zM4 21h16M12 6L6 8M12 6l6 2"></path></svg></span>
+<div>
+<h3>④ 새벽배송 규제완화 논의에 이해관계자 반발 확산</h3>
+<p>대형마트 새벽배송 허용을 담은 유통산업발전법 개정이 속도를 내는 가운데, 소상공인 단체는 저가 신선식품 배제를 요구하고 노동계도 우려를 제기하며 갈등이 커지고 있다.</p>
+</div>
+</div>
+<div class="summary-card wide">
+<span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="1.8"><path d="M3 17l5-5 4 4 8-8"></path><path d="M15 8h5v5"></path></svg></span>
+<div>
+<h3>⑤ 금리·물가 엇박자 속 경기 낙관론 확산</h3>
+<p>반도체 슈퍼사이클로 올해 성장률 3% 돌파 전망이 늘고 있지만 근원물가도 함께 오르는 가운데, 한은의 긴축 기조와 정부의 800조원대 확장 예산 편성이 상반된 방향으로 엇갈리고 있다.</p>
+</div>
+</div>
+</div>
+<div class="implications">
+<h3 class="label"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.8"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.3 1 2.1V16h6v-.4c0-.8.4-1.5 1-2.1A6 6 0 0 0 12 3z"></path></svg>사업 시사점</h3>
+<ol>
+<li><b>채널별 차별화 전략 재점검</b> — 명품·팬덤 콘텐츠 등 특정 강점으로 반등한 채널과 정체된 채널 간 격차가 커지고 있는 만큼, 자사 채널만의 차별화 포인트를 재점검할 필요가 있다.</li>
+<li><b>세대별 맞춤 채널 전략 필요</b> — 시니어층 구매력이 커지는 동시에 1020세대는 절약과 취향소비를 병행하는 등 세대별 소비 패턴이 뚜렷해지고 있어, 연령대에 맞춘 상품·서비스·시간대 편성이 중요해지고 있다.</li>
+<li><b>규제 변화 모니터링 및 상생 방안 준비</b> — 새벽배송 허용 등 유통산업발전법 개정 논의가 본격화되는 만큼, 관련 규제 변화를 지속적으로 모니터링하고 소상공인과의 상생 방안을 함께 준비할 필요가 있다.</li>
+</ol>
+</div>
+</div>
+
+<div class="section-title">Deep Dive</div>
+<div class="content-layout">
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-item active" data-target="all">전체 카테고리 <span class="count">19</span></div>
+<div class="sidebar-item" data-target="cat-유통">유통 전반 및 채널별 동향 <span class="count">7</span></div>
+<div class="sidebar-item" data-target="cat-소비">소비 및 유통 트렌드 <span class="count">2</span></div>
+<div class="sidebar-item" data-target="cat-ai">AI 및 리테일 테크 <span class="count">3</span></div>
+<div class="sidebar-item" data-target="cat-정책">유통 관련 정책 및 규제 <span class="count">2</span></div>
+<div class="sidebar-item" data-target="cat-경제">경제 일반 <span class="count">4</span></div>
+<div class="sidebar-item" data-target="cat-해외">해외 유통 트렌드 <span class="count">1</span></div>
+</aside>
+<div class="main-content">
+
+<div class="cat-section" id="cat-유통">
+<h2>유통 전반 및 채널별 동향</h2>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://retailtalk.co.kr/Issue/?idx=173045306&amp;bmode=view" target="_blank" rel="noopener" onclick="event.stopPropagation()">2026 상반기 유통업계 결산</a>
+<div class="card-meta"><span class="press">리테일톡</span> · 2026-08-19</div>
+<div class="card-summary"><b>한줄요약</b>올 상반기 국내 소매시장이 전년 대비 5% 성장한 가운데 백화점은 14.8% 급성장한 반면 대형마트는 7.3% 역성장하며 업태별 온도차가 뚜렷했다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+통계청에 따르면 올 상반기 국내 소매시장 규모는 전년 대비 5% 성장한 약 267조 3천억 원으로, 2022년 이후 가장 높은 성장률을 기록했다. 소비심리 회복과 방한 외국인 관광객 급증(전년 대비 21.3%↑)이 성장을 이끌었으며, 특히 패션·뷰티·가전 등 그동안 위축됐던 비필수 소비재가 강하게 반등했다.<br><br>업태별로는 명암이 엇갈렸다. 백화점은 명품과 외국인 소비에 힘입어 14.8% 성장하며 가장 가파른 반등을 보였고, 온라인쇼핑몰도 8.3% 성장했다. 편의점과 면세점도 역성장에서 벗어나 플러스로 전환했다. 반면 대형마트는 온라인 침투 심화와 홈플러스 회생절차 장기화 여파로 7.3% 역성장했으며, 슈퍼마켓(SSM) 업태도 0.3% 성장에 그치며 사실상 정체됐다.<br><br>이커머스에서는 쿠팡이 매출 성장에도 개인정보 유출 관련 비용 등으로 영업손실을 낸 반면, 네이버와 컬리는 AI 쇼핑 에이전트와 퀵커머스 확대를 통해 수익성과 성장성을 동시에 개선했다. 올리브영·무신사·다이소로 대표되는 전문점 3사는 웰니스·오프라인 대형매장·초저가 카테고리 확장 등 서로의 영역을 넘나드는 행보를 이어갔다.
+<br><br>
+<a class="read-more" href="https://retailtalk.co.kr/Issue/?idx=173045306&amp;bmode=view" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="http://www.ftoday.co.kr/news/articleView.html?idxno=363653" target="_blank" rel="noopener" onclick="event.stopPropagation()">"덜 팔아도 더 남긴다"…홈쇼핑업계, 2분기 체질 개선 효과 본격화</a>
+<div class="card-meta"><span class="press">파이낸셜투데이</span> · 2026-08-15</div>
+<div class="card-summary"><b>한줄요약</b>국내 홈쇼핑 4사가 2분기 나란히 영업이익을 늘리며 외형보다 수익성 중심 체질 개선 성과가 본격적으로 확인됐다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+소비 침체와 TV 시청 감소, 송출수수료 부담이라는 3중고 속에서도 국내 홈쇼핑 4사가 나란히 2분기 영업이익 증가세를 기록했다. 업계에 따르면 롯데홈쇼핑이 전년 동기 대비 62.7% 늘어 가장 높은 증가율을 보였고, CJ온스타일 21.2%, 현대홈쇼핑 13.1%, GS샵 6.0% 순으로 뒤를 이었다. 공통적으로 매출 증가폭보다 영업이익 개선폭이 훨씬 컸다는 점이 눈에 띈다.<br><br>이는 취급고 확대 중심의 과거 성장 공식 대신, 수년 전부터 진행해온 수익성 위주 체질 개선 작업이 실적으로 확인된 결과로 풀이된다. 다만 업계 안팎에서는 이를 성장 회복보다는 '수익성 방어' 성격이 강한 실적으로 보고 있다. 실제로 한국TV홈쇼핑협회에 따르면 지난해 TV홈쇼핑 7개사의 거래액은 18조 5,053억 원으로 전년 대비 5.1% 감소해, 시장 자체는 계속 축소되고 있는 상황이다.
+<br><br>
+<a class="read-more" href="http://www.ftoday.co.kr/news/articleView.html?idxno=363653" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.sisaon.co.kr/news/articleView.html?idxno=203543" target="_blank" rel="noopener" onclick="event.stopPropagation()">새벽 방송에 서포터즈 운영까지…'큰손' 5060에 구애하는 홈쇼핑</a>
+<div class="card-meta"><span class="press">시사오늘</span> · 2026-08-17</div>
+<div class="card-summary"><b>한줄요약</b>고령인구 비중이 20%를 넘어서면서 홈쇼핑 업계가 새벽 방송 확대와 서포터즈 운영 등으로 5060 시니어 고객 공략에 나서고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+홈쇼핑 업계가 핵심 고객층으로 떠오른 시니어 세대 공략에 힘을 싣고 있다. NS홈쇼핑은 5070세대 고객 7명으로 구성된 'NS 스킨십 서포터즈'를 출범시켜 방송 기획에 반영하는 한편, AI 시니어케어 기업과 손잡고 쇼핑과 건강관리를 연계한 서비스도 준비 중이다. 롯데홈쇼핑은 시니어 시청이 몰리는 오전 5시로 생방송 시작 시간을 1시간 앞당겼는데, 실제 해당 시간대 구매 고객의 약 80%가 60대 이상으로 나타났다.<br><br>GS샵은 5060 고객을 겨냥한 프리미엄 패션 프로그램을 지난 4월 론칭해 한 달 만에 주문액 55억 원을 돌파했고, 분당 평균 주문액도 동시간대 평균보다 3배 이상 높았다. 배경에는 인구구조 변화가 있다. 지난해 국내 65세 이상 인구 비중이 처음으로 20%를 넘어섰고, 홈쇼핑 여성 고객 중 60대 비중도 2024년 24.8%에서 지난해 29.9%로 높아진 반면 40~50대 비중은 오히려 줄었다.
+<br><br>
+<a class="read-more" href="https://www.sisaon.co.kr/news/articleView.html?idxno=203543" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="http://www.enewstoday.co.kr/news/articleView.html?idxno=2459537" target="_blank" rel="noopener" onclick="event.stopPropagation()">성장 날개 편 기업형 슈퍼마켓···'3사 3색' 다변화 전략 통했다</a>
+<div class="card-meta"><span class="press">이뉴스투데이</span> · 2026-08-15</div>
+<div class="card-summary"><b>한줄요약</b>기업형 슈퍼마켓(SSM) 3사가 소비 부진 속에서도 2분기 나란히 외형 성장을 이뤄냈다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+기업형 슈퍼마켓(SSM) 3사가 업태 전반의 역성장 기조 속에서도 올해 2분기 나란히 매출 성장을 기록했다. GS더프레시는 매출 4,698억 원, 영업이익 93억 원으로 각각 전년 동기 대비 10.1%, 72.2% 증가했다. 이마트에브리데이는 매출 3,891억 원, 영업이익 81억 원으로 각각 7.2%, 51.7% 늘었다. 롯데슈퍼는 매출이 1.4% 증가한 3,130억 원을 기록했지만 18억 원의 영업손실을 냈다.<br><br>3사의 공통점은 기존점 지표가 개선됐다는 점이다. GS더프레시는 기존점 객수가 3.9% 늘었고, 이마트에브리데이와 롯데슈퍼는 기존점 매출이 각각 10.6%, 1.1% 증가했다. 생활권 점포의 집객력을 높이고 판매·배송 접점을 넓힌 전략이 매출 성장을 뒷받침했다는 평가가 나온다.
+<br><br>
+<a class="read-more" href="http://www.enewstoday.co.kr/news/articleView.html?idxno=2459537" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.koreareport.co.kr/news/articleView.html?idxno=52232" target="_blank" rel="noopener" onclick="event.stopPropagation()">빠르게 확산하는 퀵커머스...배달앱·편의점·이커머스 삼각 격전</a>
+<div class="card-meta"><span class="press">코리아리포트</span> · 2026-08-19</div>
+<div class="card-summary"><b>한줄요약</b>국내 퀵커머스 시장이 올해 5조원 돌파를 앞두고 배달앱·편의점·이커머스 3파전으로 재편되고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+주문 후 30분 안에 상품이 도착하는 퀵커머스가 유통업계의 새로운 표준으로 자리 잡고 있다. 글로벌 시장조사업체 스태티스타 집계에 따르면 국내 퀵커머스 시장 규모는 2020년 3500억원에 불과했지만 지난해 4조원대까지 늘어났고, 올해 5조원 돌파가 유력시된다. 5년 만에 시장이 10배 넘게 커진 셈이다. 배경에는 1인 가구 증가에 따른 소량·즉시 구매 수요, 높은 인구밀도, 세계적으로도 높은 스마트폰 보급률이 자리한다.<br><br>현재 시장은 배달 플랫폼, 편의점, 이커머스 업체가 뒤엉켜 각축을 벌이는 구도다. 배달의민족은 자체 물류 브랜드 'B마트'와 전국 80여 개 상품 선별·포장 거점(PPC)을 중심으로 '배민스토어'를 통해 반찬·식품부터 뷰티·잡화까지 입점 카테고리를 넓히고 있다. 쿠팡이츠는 로켓와우 멤버십과 함께 음식 주문과 장보기를 함께 배달하는 '함께배달' 서비스를 올해부터 본격 확대했고, 컬리나우도 신선식품 강점을 살려 입점 경쟁에 가세했다.<br><br>편의점업계의 존재감도 커지고 있다. CU는 배달 매출이 2023년 98.6%에서 2024년 142.8%로 급증한 데 이어 올해도 두 자릿수 성장세를 이어가고 있고, GS25는 월간 퀵커머스 주문 건수가 전월 대비 17.9% 늘었다. 쿠팡이츠는 CU·GS25와 손잡고 서울·경기·주요 광역시에서 24시간 퀵커머스 서비스를 운영 중이며, 배달의민족도 서비스 종료 시각을 오전 3시에서 5시로 늦추며 심야 수요를 공략하고 있다. 다만 도심형 물류센터 구축과 라이더 확보에 막대한 비용이 투입되는 구조상 손익분기점을 넘기기 쉽지 않다는 게 업계 중론으로, 이 부담이 입점업체의 수수료·광고비 인상으로 전가될 수 있다는 우려도 제기된다.
+<br><br>
+<a class="read-more" href="https://www.koreareport.co.kr/news/articleView.html?idxno=52232" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.sedaily.com/article/20079518" target="_blank" rel="noopener" onclick="event.stopPropagation()">차별화 상품 앞세운 편의점…역성장 끊고 성장 궤도</a>
+<div class="card-meta"><span class="press">서울경제</span> · 2026-08-17</div>
+<div class="card-summary"><b>한줄요약</b>GS25·CU·세븐일레븐의 차별화 상품 매출이 일제히 20% 넘게 늘며 편의점 업황 반등을 이끌고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+다른 채널에서 접하기 어려운 단독·협업 상품이 편의점의 새 흥행 공식으로 자리 잡고 있다. GS25·CU·세븐일레븐 등 주요 편의점의 올해 차별화 상품 매출은 일제히 20% 넘게 증가했다. GS25는 27.5% 늘며 버추얼 아이돌 협업 상품 130만 개, '흑백요리사2' 간편식 800만 개가 팔렸다. CU는 22.1% 늘었고 '두바이 쫀득 쿠키'가 1,500만 개 판매됐다. 세븐일레븐도 21% 증가했고 KBO 컬렉션 카드가 380만 개 팔리며 팬덤 상품으로 자리매김했다.<br><br>편의점들은 상품 영역도 식품 중심에서 생활용품·패션·뷰티 소품으로 넓히고 있다. GS25는 최근 여성 고객을 겨냥해 네일케어 세트 등 뷰티 상품을 잇따라 선보였다. 이 같은 차별화 상품 흥행에 힘입어 올 상반기 편의점 매출은 전년 대비 3.7% 증가했다. 지난해 연간 매출이 1.0% 감소하며 역성장했던 것과 비교하면 뚜렷한 반전으로, 특히 6월 매출은 전년 동월 대비 5.1% 늘며 성장세가 더 가팔라졌다.
+<br><br>
+<a class="read-more" href="https://www.sedaily.com/article/20079518" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.dailypop.kr/news/articleView.html?idxno=101672" target="_blank" rel="noopener" onclick="event.stopPropagation()">[솔로이코노미] 편의점 3사, 1인가구 공략하는 포인트...밥알·단백질·아침</a>
+<div class="card-meta"><span class="press">데일리팝</span> · 2026-08-20</div>
+<div class="card-summary"><b>한줄요약</b>편의점 3사가 밥알 식감, 단백질 함량, 아침 시간대 등 저마다 다른 포인트로 1인가구 간편식 수요를 공략하고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+편의점 3사가 '밥'을 중심으로 저마다 다른 차별화 포인트를 내세우고 있다. 세븐일레븐은 냉장 상태에서도 밥알이 마르지 않도록 기술을 적용한 '올 뉴 간편식'을 4월 선보여 누적 2,000만 개가 팔렸고, 삼각김밥 매출 증가율이 17%에서 33%로 뛰었다. GS25는 단백질 함량을 높인 고단백 김밥과 당·지방을 낮춘 저당 삼각김밥을 내놓아 3개월 만에 250만 개가 판매됐고, 김밥·삼각김밥 매출이 각각 25% 늘었다.<br><br>CU는 아침 시간대를 정조준했다. 1월 선보인 아침 전용 'get모닝' 꼬마김밥은 100만 개가 팔렸고, 18일부터는 미니 간편식 13종을 추가 출시했다. CU에 따르면 지난해 아침 시간대 간편식사 매출신장률은 3년 연속 두 자릿수를 기록했는데, 특히 1인가구가 많은 원룸촌·오피스텔 상권의 매출신장률이 22.1%로 오피스 상권(21.8%)보다도 높았다.
+<br><br>
+<a class="read-more" href="https://www.dailypop.kr/news/articleView.html?idxno=101672" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+</div>
+
+<div class="cat-section" id="cat-소비">
+<h2>소비 및 유통 트렌드</h2>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.mobiinside.co.kr/2026/08/18/mood-cost-performance-consumption" target="_blank" rel="noopener" onclick="event.stopPropagation()">[트렌드로 읽는 소비문화] 구라시보? 기분에도 가성비가 필요하다</a>
+<div class="card-meta"><span class="press">모비인사이드</span> · 2026-08-18</div>
+<div class="card-summary"><b>한줄요약</b>고물가 시대 소비자들이 '기분 가성비'를 좇으며 가상 쇼핑몰, 저비용 럭셔리 흉내내기 등으로 심리적 만족을 최소 비용에 채우고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+SNS에서 화제가 된 '마음자로'는 비만 치료제를 흉내내 주사 맞는 기분만 재현하는 콘텐츠로, 다 맞고 나면 '구라시보 효과로 식욕이 사라졌다'는 메시지가 뜬다. 플라세보 효과를 재치 있게 비튼 '구라시보 효과'라는 표현처럼, 소비자들은 실제 지출 없이 가상 쇼핑몰·가상 배달 앱에서 결제 과정만 체험하며 재미를 얻고 있다.<br><br>고급스러운 기분만 저비용으로 취하려는 흐름도 뚜렷하다. 5성급 호텔 대신 부대시설만 이용해 '호캉스' 인증샷을 남기거나, 대중적인 뷔페에서 파인다이닝 플레이팅을 연출하는 식이다. 미국 쇼핑몰 Etsy에서는 결혼식 날 맑은 날씨를 기원하는 '날씨 주문'이 5,000~5만 원에 거래되기도 한다.<br><br>이런 '기분 가성비' 흐름은 산업 전반에도 영향을 주고 있다. 유명 브랜드의 성능을 모방한 제품을 뜻하는 '듀프'가 유행을 넘어 산업으로 자리 잡으면서, 글로벌 매체 '비즈니스 오브 패션'은 뷰티업계 현 상황을 '슈퍼듀프 시대'로 규정했다. 도지어 등 듀프에서 출발한 브랜드가 월마트·타깃 등 주요 유통업체에 입점하는 사례도 늘고 있다.
+<br><br>
+<a class="read-more" href="https://www.mobiinside.co.kr/2026/08/18/mood-cost-performance-consumption" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.openads.co.kr/content/contentDetail?contsId=20209" target="_blank" rel="noopener" onclick="event.stopPropagation()">밤 10시 이후, 편의점 장바구니는 어떻게 달라질까?</a>
+<div class="card-meta"><span class="press">오픈애즈</span> · 2026-08-21</div>
+<div class="card-summary"><b>한줄요약</b>편의점 심야 장바구니에서 에너지음료(+41.5%)와 밥류(+38.7%) 구매가 크게 늘며 늦은 시간 소비 목적이 다양해지고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+엠브레인 구매딥데이터 분석 결과, 2026년 6월 기준 최근 1년간 밤 10시부터 새벽 4시까지 편의점에서 가장 많이 팔린 품목은 스낵류(약 2,071만 건)였다. 전년 동기 대비 특히 눈에 띄는 것은 에너지음료(+41.5%)와 밥류(+38.7%)의 증가세로, 늦은 시간 에너지를 보충하거나 간편하게 식사를 해결하려는 수요가 확대되고 있음을 보여준다.<br><br>연령대별 차이도 뚜렷했다. 20대 이하에서는 에너지음료(+59.1%), 비스켓(+62.6%) 등 음료·간식류 구매가 크게 늘어난 반면, 50대와 60대에서는 아이스크림(각각 +35.2%, +38.0%)과 일반 빵류 구매가 증가했다. 활동 시간이 길어지고 생활 리듬이 다양해지면서, 같은 심야 시간대라도 연령에 따라 구매 품목이 다르게 나타나고 있다는 분석이다.
+<br><br>
+<a class="read-more" href="https://www.openads.co.kr/content/contentDetail?contsId=20209" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+</div>
+
+<div class="cat-section" id="cat-ai">
+<h2>AI 및 리테일 테크</h2>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://biz.newdaily.co.kr/site/data/html/2026/08/18/2026081800064.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">면세점 '안전', 이커머스 '검색', 여행 '예약' … 유통가 AI 활용법</a>
+<div class="card-meta"><span class="press">뉴데일리경제</span> · 2026-08-18</div>
+<div class="card-summary"><b>한줄요약</b>11번가는 AI 검색으로 구매전환율을 2배로 높였고 신세계면세점은 안전관리에, 놀유니버스는 여행 에이전트 개발에 AI를 적용하고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+유통업계의 AI 활용 영역이 상품 추천·고객 상담을 넘어 검색·구매전환, 오프라인 안전관리, 여행 서비스 설계까지 빠르게 넓어지고 있다. 11번가는 이용자가 상품군을 입력하면 세분화된 키워드를 제안하고 조건에 맞는 상품을 추려주는 'AI 검색'을 도입해, 7월 한 달간 구매전환율이 기존 통합검색 대비 2배 이상 높게 나타났다.<br><br>신세계면세점은 업계 최초로 명동점과 인천공항 통합물류센터에 비전 AI 기반 안전관리 시스템을 구축했다. 에스컬레이터 역주행이나 유모차 진입, 지게차의 2인 1조 수칙 준수 여부 등을 AI가 감지해 오알람은 줄이고 실제 위험 상황 대응 속도는 높였다. 여행 플랫폼 놀유니버스는 정부 지원사업으로 선정돼 51억 원 규모의 여행 특화 AI 에이전트와 8종의 전용 MCP 도구를 개발해 2031년까지 고도화할 계획이다.
+<br><br>
+<a class="read-more" href="https://biz.newdaily.co.kr/site/data/html/2026/08/18/2026081800064.html" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.madtimes.co.kr/news/articleView.html?idxno=28671" target="_blank" rel="noopener" onclick="event.stopPropagation()">AI 검색 유입 197% 급증… 그래도 이커머스의 최대 유입원은 '검색'</a>
+<div class="card-meta"><span class="press">매드타임스</span> · 2026-08-17</div>
+<div class="card-summary"><b>한줄요약</b>쇼피파이 조사 결과 AI 유입 세션이 전년 대비 197% 급증했지만 오가닉 검색도 12% 성장해, AI가 기존 검색을 대체하기보다 탐색 경로를 넓히고 있는 것으로 나타났다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+생성형 AI가 새로운 상품 탐색 채널로 빠르게 자리 잡고 있지만, 기존 검색을 대체하고 있는 것은 아니다. 쇼피파이가 2026년 2분기 판매자 스토어 데이터를 분석한 결과, AI 플랫폼을 통한 방문 세션은 전년 동기 대비 197% 증가했고 주문도 약 3배 늘었다. 같은 기간 오가닉 검색을 통한 세션 역시 12% 증가해, 전체 규모에서는 오가닉 검색이 여전히 AI 플랫폼 전체를 합친 것보다 더 많은 방문을 이끌었다.<br><br>AI와 오가닉 검색은 쇼핑에서 맡는 역할이 다르다. 제품 사양·호환성·리뷰 등을 비교해야 하는 제품군에서는 AI로 유입된 소비자의 전환율이 오가닉 검색 대비 약 2배였고, 상품상세페이지 도달자만 비교해도 AI 쪽이 약 80% 높았다. 반면 취향이 구매를 좌우하는 제품에서는 오가닉 검색이 여전히 주요 발견 경로였지만, 이런 제품에서도 AI를 통한 신규 고객 비율은 오가닉 검색보다 약 1.3배 높았다. 같은 패션 카테고리 안에서도 의류 전체는 AI 전환율이 오가닉 대비 1.6배였지만, 비교 요소가 많은 시계는 2.4배, 목걸이는 2.3배로 격차가 더 벌어졌다.<br><br>AI는 소비자가 쇼핑몰에 들어오는 경로도 바꾸고 있다. 2026년 2분기 AI를 통한 세션의 50%가 홈페이지가 아닌 상품상세페이지에서 바로 시작됐다. 쇼피파이는 AI가 웹사이트 정보 대신 자사의 구조화된 Catalog 데이터를 이용해 추천했을 때 전환율이 2배 높았다며, 소재·크기·색상·호환성 등 소비자가 비교하는 정보를 기계가 읽을 수 있는 형태로 정리할 필요가 있다고 조언했다. 구글도 AI 오버뷰와 AI 모드가 기존 검색과 같은 랭킹 시스템을 쓴다고 밝힌 만큼, AI 검색과 기존 SEO를 별개 작업으로 접근할 필요는 없다는 설명이다.
+<br><br>
+<a class="read-more" href="https://www.madtimes.co.kr/news/articleView.html?idxno=28671" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://zdnet.co.kr/view/?no=20260818100220" target="_blank" rel="noopener" onclick="event.stopPropagation()">"이 글, AI가 썼습니다"…클로드, 워터마크 남긴다?</a>
+<div class="card-meta"><span class="press">지디넷코리아</span> · 2026-08-18</div>
+<div class="card-summary"><b>한줄요약</b>앤트로픽이 클로드 생성 텍스트에 보이지 않는 워터마크를 삽입하는 기술을 공개했지만, 실효성과 법적 증거능력을 둘러싼 논쟁이 뜨겁다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+앤트로픽이 AI 모델 클로드가 생성한 텍스트에 단어 선택의 통계적 패턴을 심어 워터마크를 남기는 기술을 공개하면서 논쟁이 일고 있다. 기술적으로는 사용자가 텍스트를 조금만 손질해도 통계적 흔적이 쉽게 사라지는 한계가 지적된다. 짧은 문장이나 단순 문법 교정, 정답이 정해진 코딩 작업에서는 워터마크 탐지가 특히 어렵다는 평가다.<br><br>규제 측면에서는 EU AI Act가 시행 중인데도 위양성·위음성 비율 같은 구체적 성능 지표가 공개되지 않아 실질적인 규제 도구로 인정받기 어렵다는 지적이 나온다. 법률 전문가들은 객관적 성능 데이터가 없는 상태에서는 워터마크 탐지 결과가 법정에서 유효한 증거로 인정받기 어려워, 저작권 분쟁 등에서 오히려 '입증 책임의 전가' 문제로 이어질 수 있다고 우려한다. 언론계에서는 워터마크를 'AI 판정기'로 맹신하기보다 편집 데스크의 선별 보조 도구로 제한적으로 활용해야 한다는 실무적 제언도 나온다.
+<br><br>
+<a class="read-more" href="https://zdnet.co.kr/view/?no=20260818100220" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+</div>
+
+<div class="cat-section" id="cat-정책">
+<h2>유통 관련 정책 및 규제</h2>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.joongang.co.kr/article/25454018" target="_blank" rel="noopener" onclick="event.stopPropagation()">[단독] "4천원짜리 양파는 새벽배송 불가"…황당한 유통 상생안</a>
+<div class="card-meta"><span class="press">중앙일보</span> · 2026-08-18</div>
+<div class="card-summary"><b>한줄요약</b>중기부가 대형마트 새벽배송 허용의 전제로 제시한 상생안에 '1만원 이하 신선식품 판매 제한' 등이 담겨, 정작 소량 구매가 대세인 현실과 맞지 않는다는 비판이 나온다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+대형마트 '새벽배송' 규제 완화의 마중물이 될 상생안을 둘러싸고 논란이 일고 있다. 유통업계에 따르면 중소벤처기업부는 최근 주요 유통업체에 새벽배송 허용을 위한 전제로, 소상공인단체 의견을 담은 상생안을 제시하고 검토를 요청했다. 신선식품 소량판매(1만원 이하) 제한, 상생기금(1000억원) 조성, 소상공인에 도매가 물품 판매 등 7가지가 골자다. 2013년 시행된 유통산업발전법에 따라 대형마트는 월 2회 의무휴업과 새벽시간(0~10시) 영업 금지 규제를 적용받아 왔는데, 이커머스와의 형평성 문제가 커지자 정부·여당은 새벽시간 온라인 배송만 허용하는 개정을 추진 중이다.<br><br>유통업계가 가장 곤혹스러워하는 조항은 '새벽시간 농·축·수산물 단일품목 1만원 이하 판매 제한'이다. 예컨대 이 시간대엔 양파(4000원)와 계란(7000원)을 함께 담아 결제 총액이 1만원을 넘어도, 개별 품목 가격이 각각 1만원 이하라 판매할 수 없다. 익명을 요구한 유통업계 관계자는 가구원 수 감소로 소량판매가 대세인 상황에서 당혹스럽다며, 규제 완화 취지에도 맞지 않는 방안이라고 지적했다. 전통시장·소상공인이 대형마트·SSM에서 도매가로 물품을 구매하도록 지원하는 조항도, 사실상 대형마트에 소상공인 물류센터 역할을 하라는 것이라는 볼멘소리가 나온다.<br><br>1000억원 규모 상생협력기금 조성도 쉽지 않아 보인다. 대형마트·온라인 플랫폼이 매출의 0.1%가량을 출연해 최소 10년간 매년 100억원 이상을 조성한다는 계획인데, 이미 24시간 영업 중인 쿠팡·컬리 같은 플랫폼 입장에서는 새벽배송 규제 완화로 오히려 경쟁이 불리해지는 만큼 기금을 낼 이유가 크지 않다. 중기부 관계자는 양측 입장 차이를 조율해 협의의 장을 만들겠다고 밝혔고, 김성원 국회 산업통상자원중소벤처기업위원장은 소비 현실과 동떨어진 상생안이 규제 완화 취지 자체를 퇴색시킬 수 있다며 현실적인 합의점을 도출하겠다고 말했다.
+<br><br>
+<a class="read-more" href="https://www.joongang.co.kr/article/25454018" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.klnews.co.kr/news/articleView.html?idxno=322331" target="_blank" rel="noopener" onclick="event.stopPropagation()">PART 1. 유통산업발전법 개정 놓고 유통업계 찬반 논란</a>
+<div class="card-meta"><span class="press">물류신문</span> · 2026-08-14</div>
+<div class="card-summary"><b>한줄요약</b>유통산업발전법 개정을 두고 대형마트는 새벽배송 허용에 기대를 걸지만 전통시장·소상공인·노동계는 지역상권 붕괴와 노동강도 증가를 우려하며 반발하고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+유통산업발전법 개정에 속도가 붙으면서 유통업계 안팎에서 입장이 크게 엇갈리고 있다. 대형마트업계는 온라인 플랫폼과 달리 심야·의무휴업일에 점포를 활용한 배송을 하지 못하는 규제가 '기울어진 운동장'을 만들었다고 주장한다. 실제로 업태별 매출 비중에서 온라인은 지난 3월 처음 60%를 넘긴 반면 대형마트는 7.5%까지 줄었는데, 2021년(15.1%)과 비교하면 절반 수준이다.<br><br>반면 전통시장과 소상공인 단체는 온라인 플랫폼에 이어 대형마트까지 새벽배송에 뛰어들면 영세 소매업체가 이중으로 타격을 입을 것이라며 개정 철회를 요구하고 있다. 노동계도 배송 속도 경쟁이 심야·장시간 노동으로 이어질 수 있다며 적정 인력 배치와 휴게시간 보장 등 안전장치가 먼저 마련돼야 한다는 입장이다. 전문가들은 대형마트의 영업시간 확대 자체보다 온라인 중심으로 재편된 유통시장에 맞춰 규제를 재설계하고, 지역상권·노동자 피해를 최소화할 상생 방안을 함께 마련해야 한다고 조언했다.
+<br><br>
+<a class="read-more" href="https://www.klnews.co.kr/news/articleView.html?idxno=322331" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+</div>
+
+<div class="cat-section" id="cat-경제">
+<h2>경제 일반</h2>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.asiae.co.kr/article/2026082219294163205" target="_blank" rel="noopener" onclick="event.stopPropagation()">전문가 전원 "올해 韓 성장률 3% 넘을 것"…근원물가 내년까지 높다[금통위poll]②</a>
+<div class="card-meta"><span class="press">아시아경제</span> · 2026-08-23</div>
+<div class="card-summary"><b>한줄요약</b>아시아경제 설문에 응한 경제전문가 전원이 올해 한국 경제성장률 3% 돌파를 전망했지만, 근원물가는 내년까지도 소비자물가보다 높은 수준을 유지할 것으로 봤다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+오는 27일 한국은행의 기준금리 결정과 경제전망 발표를 앞두고 국내 대다수 전문가는 올해 우리나라 경제가 3.2~3.4% 성장할 것으로 전망했다. 아시아경제가 국내외 경제연구소·증권사·은행의 경제전문가 14명을 대상으로 지난 18일부터 21일까지 설문조사를 진행한 결과, 응답자 전원이 올해 성장률이 3.0%를 넘길 것으로 내다봤다. 지난달 설문에서 응답자 11명 중 5명이 2%대 전망을 유지했던 것과 비교하면, 한 달 만에 예상보다 높은 성장세를 점친 이들이 크게 늘어난 셈이다. 안재균 한국투자증권 연구원은 반도체 중심 수출 호조세와 설비투자, 정부지출 확대로 연간 3%대 성장률을 무난히 달성할 것이라고 말했다.<br><br>내년에도 반도체의 내수 확산 효과가 본격적으로 나타나며 잠재성장률을 웃도는 성장세가 이어질 것이라는 전망이다. 응답자 12명 중 9명은 내년 2.3~2.5% 수준의 성장률을 예상했다. 반면 고물가에 대한 우려는 여전했다. 올해 소비자물가 상승률은 응답자 12명 중 7명이 한은의 5월 전망치인 2.7%를 예상해 가장 많았고, 내년에는 물가 상승률이 다소 낮아지겠지만 둔화 속도는 더딜 것이라는 전망이 지배적이었다.<br><br>특히 소비자물가에서 에너지·식료품을 제외한 근원물가는 올해와 내년 모두 높은 수준을 유지할 것으로 전망됐다. 전문가 대다수는 올해 근원물가 상승률이 한은의 5월 전망치(2.4%)를 웃돌 것으로 봤고, 응답자 10명 중 6명은 내년에도 소비자물가보다 근원물가가 더 높을 것이라고 전망했다. 조용구 신영증권 연구원은 칩플레이션과 수요 측면의 상승 압력이 반영돼 기존 전망을 다소 상회할 것이라고 말했다. 이달 기준금리 결정에 영향을 줄 가장 큰 변수로는 응답자 11명 중 7명이 고유가로 인한 고물가를, 6명이 반도체 슈퍼사이클에 따른 수출 호조를 꼽아, 두 요인이 상반된 방향으로 통화정책 판단에 영향을 미치고 있는 것으로 나타났다.
+<br><br>
+<a class="read-more" href="https://www.asiae.co.kr/article/2026082219294163205" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.chosun.com/economy/economy_general/2026/08/21/PKDYV5D57BBWFFWVB3AEAVUHIU/" target="_blank" rel="noopener" onclick="event.stopPropagation()">국제 유가 진정에…7월 생산자 물가, 11개월 만에 하락</a>
+<div class="card-meta"><span class="press">조선일보</span> · 2026-08-21</div>
+<div class="card-summary"><b>한줄요약</b>국제유가 하락 영향으로 7월 생산자물가가 11개월 만에 하락했지만, 8월 들어 유가가 다시 오르며 반등 가능성이 제기된다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+지난달 국제 유가 하락 등의 영향으로 생산자물가가 전월 대비 0.4% 내려갔다고 한국은행이 21일 발표했다. 11개월 만의 하락이다. 전년 동월 대비 생산자물가 상승률은 7.7%로, 여전히 높은 수준이지만 전월 8.5%보다는 다소 낮아졌다. 품목별로는 국제 유가 영향을 받는 석탄 및 석유제품이 5.1% 내리면서 공산품 물가가 전월보다 0.5% 하락했고, 7월 주식시장 하락으로 위탁매매 수수료 등이 포함된 금융서비스 가격이 7.1% 내리며 전체 서비스 물가도 0.4% 내려갔다.<br><br>품목별로는 폭염으로 작황이 나빴던 시금치 물가가 전월 대비 115.8% 오르며 높은 상승률을 기록했다. 다만 전년 동월 대비로는 29.3% 내린 수준이다. 날씨 탓에 피해가 컸던 기타 어류 물가도 전월보다 15.5% 올랐다. 국제 유가 영향을 많이 받는 휘발유 가격은 전월보다 11.3%, 경유 가격은 9.8% 하락했다. 반면 미국발 인공지능 호황으로 수요가 급증한 반도체 도매 물가는 지난달에도 큰 폭으로 상승해, DRAM 가격이 전월보다 8.4%, 전년 동월 대비로는 474.4% 급등했다.<br><br>이흥후 한은 물가통계팀장은 8월 들어 국제 유가가 다시 오르고 중동 정세도 불안한 상태가 이어지고 있어 생산자물가가 반등할 수 있다고 말했다. 그는 전년 동월 대비 수치의 경우 지난해 통신비 보조금으로 인한 기저 효과가 사라진 영향도 이달 생산자물가에 0.2%포인트 정도 반영될 전망이라고 덧붙였다.
+<br><br>
+<a class="read-more" href="https://www.chosun.com/economy/economy_general/2026/08/21/PKDYV5D57BBWFFWVB3AEAVUHIU/" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.joongang.co.kr/article/25455199" target="_blank" rel="noopener" onclick="event.stopPropagation()">재정정책 충돌…한은은 금리 인상 돈 죄기, 정부는 800조 예산 돈 풀기</a>
+<div class="card-meta"><span class="press">중앙일보</span> · 2026-08-22</div>
+<div class="card-summary"><b>한줄요약</b>한은이 3년 6개월 만에 기준금리를 인상하며 긴축에 나선 사이, 정부는 사상 첫 800조원대 확장 예산을 편성하며 통화·재정정책이 정면충돌하고 있다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+한국은행의 긴축과 정부의 재정 확장이 정면으로 충돌하고 있다. 한은이 3년 6개월 만에 기준금리를 인상하며 긴축에 돌입한 가운데, 정부는 사상 처음으로 '800조원대'에 달하는 초대형 확장 예산 편성을 공식화했다. 한국은행은 지난달 16일 금융통화위원 7명 전원 일치로 기준금리를 연 2.50%에서 2.75%로 올렸는데, 정부가 예산을 늘려 시중에 돈을 풀면 물가를 자극해 결국 금리를 더 올려야 하는 악순환에 빠질 수 있다는 우려가 나온다. 실제로 7월 신규 코픽스는 전월보다 0.13%포인트 오른 3.18%로 4개월 연속 상승했고, 5대 은행의 무수익여신 잔액은 6조4108억원으로 반년 만에 28% 급증했다.<br><br>박홍근 기획예산처 장관은 지난달 국가재정전략회의에서 2027년 국세수입이 사상 최대인 500조원+α에 달할 것이라며 내년 총지출을 올해보다 10% 이상 늘리겠다고 밝혔다. 증권가에서는 실제 지출 규모가 최대 840조원에 이를 것이라는 관측도 나오는데, 연간 지출 증가율이 두 자릿수를 기록하는 것은 2009년 글로벌 금융위기 극복 당시 이후 처음이다. 김우철 서울시립대 교수(한국재정학회장)는 재정 외형이 이미 크게 불어난 상태에서 과열된 경기에 대규모 재정을 쏟아붓는 것은 심각한 문제라고 지적했다.<br><br>정부는 반도체발 초과 세수와 50조원 지출 구조조정으로 재원을 마련해 재정 적자가 오히려 줄어든다는 입장이지만, 올해도 세금이 예상보다 많이 걷혔는데 관리재정수지 적자가 107조원에 달해 실현 가능성에 의문이 제기된다. 채권시장 반응도 싸늘해, 지난 14일 30년 만기 국고채 금리는 일주일 만에 0.15%포인트 오른 연 4.67%를 기록했다. 다만 김정식 연세대 명예교수 등은 AI 등 미래 핵심 산업 주도권을 위해 정부 재정이 마중물 역할을 해야 한다고 반론을 제기했고, 신현송 한은 총재도 재정정책이 생산적 투자로 이어진다면 금리 인상과 엇박자로 보기 어렵다며 취약계층 지원에서는 재정의 역할을 긍정적으로 평가했다.
+<br><br>
+<a class="read-more" href="https://www.joongang.co.kr/article/25455199" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://www.hankyung.com/article/2026082363977" target="_blank" rel="noopener" onclick="event.stopPropagation()">"동결해도 끝 아냐"…한은 금리 인상 사이클 계속</a>
+<div class="card-meta"><span class="press">한국경제</span> · 2026-08-23</div>
+<div class="card-summary"><b>한줄요약</b>8월 금통위를 앞두고 전문가 6명 중 4명이 금리 동결을 전망했지만, 동결하더라도 한은의 금리 인상 사이클은 연말까지 이어질 것으로 보인다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+한국은행 금융통화위원회의 8월 기준금리 결정을 앞두고 시장 전망이 갈리고 있다. 연합뉴스가 경제 전문가 6명을 대상으로 조사한 결과 4명은 동결, 2명은 0.25%포인트 인상을 전망했다. 동결론의 핵심은 속도 조절로, 7월 이미 금리를 올린 만큼 8월에는 직전 인상 효과를 확인할 필요가 있다는 분석이다.<br><br>다만 8월 동결을 예상한 전문가들도 한은의 금리 인상 사이클이 끝났다고 보지는 않았다. 인상 소수의견이 다수 나올 경우 시장은 이를 추가 인상 예고로 받아들일 수 있고, 인상론자들은 3%대 성장률과 목표치를 웃도는 물가를 근거로 연내 추가 인상 필요성을 제기했다. 8월 인상을 전망한 전문가들도 최종 금리 수준을 연 3.25~3.50%로 제시해, 동결·인상 어느 쪽이든 긴축 기조 자체는 당분간 이어질 것이라는 데 의견이 모였다.
+<br><br>
+<a class="read-more" href="https://www.hankyung.com/article/2026082363977" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+</div>
+
+<div class="cat-section" id="cat-해외">
+<h2>해외 유통 트렌드</h2>
+
+<div class="card">
+<div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+<div class="title-group">
+<a class="card-title-link" href="https://drive.google.com/file/d/1wKyZsRgCLukBsKjz1Xpl-c2Sob2KnNO2/view?usp=sharing" target="_blank" rel="noopener" onclick="event.stopPropagation()">잭다니엘 가문, 경영 위기 속 인수 제안·가문 내분에 직면</a>
+<div class="card-meta"><span class="press">월스트리트저널(WSJ)</span> · 2026-08-22</div>
+<div class="card-summary"><b>한줄요약</b>잭 다니엘스를 보유한 브라운-포먼이 실적 부진과 적대적 인수 제안 속에 150년 넘게 이어온 브라운 가문 내분에 휩싸였다.</div>
+</div>
+<div class="toggle-icon">미리보기<span class="arrow">▾</span></div>
+</div>
+<div class="preview"><div class="preview-inner">
+미국 대표 위스키 브랜드 '잭 다니엘스'를 보유한 브라운-포먼이 실적 악화와 주가 하락, 적대적 인수 제안으로 내홍에 휩싸였다. 지난 5년간 주가는 약 60% 하락했고, 경쟁사 사제락은 지난 5월 150억 달러 규모의 사전 협의 없는 인수를 제안했다가 이사회로부터 거절당했다. 가문 상속인인 라이언스 브라운과 스튜어트 브라운 형제는 130명 넘는 친척들에게 이사회가 실패에 공개적으로 지나치게 많은 보상을 하고 있다고 비판하는 서한을 보냈고, 서한이 공개된 지 사흘 뒤 CEO는 사임 의사를 밝혔다.<br><br>위기의 배경에는 미국 주류 시장 침체가 있다. 최근 갤럽 조사에서 미국 음주자 비중은 약 90년 조사 역사상 최저 수준을 기록했고, 소비자들은 스트레이트 위스키 대신 캔 형태의 RTD 칵테일이나 대마·THC 음료로 옮겨가고 있다. 브라운-포먼은 지난해 전체 직원의 12%를 감원했고, 최근 회계연도 순이익은 18% 감소했다.<br><br>브라운 가문은 6대에 걸쳐 회사 의결권 주식의 최소 70%를 보유하고 있지만 지분이 100명 넘는 상속인들에게 분산돼 있다. 가문은 2017년 무렵 '울프 펜 브랜치'라는 조직을 만들어 의결권을 결집했는데, 사제락의 인수 제안에 대해 울프 펜은 회사의 미래에 대한 구성원들의 비전과 부합하지 않는다는 입장을 냈다. 다만 프랑스 주류업체 페르노리카와의 합병 논의를 둘러싸고도 가문 내 이견이 있었던 것으로 알려져, 100년 넘게 이어진 가문 지배력이 시험대에 올랐다는 평가가 나온다.
+<br><br>
+<a class="read-more" href="https://drive.google.com/file/d/1wKyZsRgCLukBsKjz1Xpl-c2Sob2KnNO2/view?usp=sharing" target="_blank" rel="noopener">전문 보기 →</a>
+</div></div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<footer>GS Retail · 지속가능경영부문 · 커뮤니케이션팀</footer>
+
+<script>
+function playVideoInline() {
+  document.getElementById('videoThumb').style.display = 'none';
+  var embed = document.getElementById('videoEmbed');
+  embed.style.display = 'block';
+  var iframe = embed.querySelector('iframe');
+  if (!iframe.src.includes('autoplay')) iframe.src += (iframe.src.includes('?') ? '&' : '?') + 'autoplay=1';
+}
+document.querySelectorAll('.sidebar-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    const target = item.dataset.target;
+    document.querySelectorAll('.cat-section').forEach(sec => {
+      sec.style.display = (target === 'all' || sec.id === target) ? '' : 'none';
+    });
+    document.querySelector('.main-content').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
+
+
+
+</body></html>
